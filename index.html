@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to OOP and Web Development</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript">
+        // Example of Encapsulation in JavaScript
+        class Car {
+            constructor(brand, model) {
+                this._brand = brand;
+                this._model = model;
+            }
+            
+            getDetails() {
+                return `Car: ${this._brand} - ${this._model}`;
+            }
+        }
+
+        function showEncapsulation() {
+            const car = new Car("Toyota", "Corolla");
+            document.getElementById("encapsulation-example").innerText = car.getDetails();
+        }
+
+        // Example of Inheritance
+        class ElectricCar extends Car {
+            constructor(brand, model, batteryLife) {
+                super(brand, model);
+                this.batteryLife = batteryLife;
+            }
+        }
+
+        function showInheritance() {
+            const electricCar = new ElectricCar("Tesla", "Model S", "100 miles");
+            document.getElementById("inheritance-example").innerText = `Electric Car: ${electricCar.getDetails()} - Battery Life: ${electricCar.batteryLife}`;
+        }
+
+        // Example of Polymorphism
+        class Animal {
+            speak() {
+                return "Generic animal sound";
+            }
+        }
+
+        class Dog extends Animal {
+            speak() {
+                return "Bark!";
+            }
+        }
+
+        function showPolymorphism() {
+            const dog = new Dog();
+            document.getElementById("polymorphism-example").innerText = `Animal Sound: ${dog.speak()}`;
+        }
+
+        // Example of Abstraction
+        function showAbstraction() {
+            const carFeatures = "You drive a car using the steering wheel, accelerator, and brake.";
+            document.getElementById("abstraction-example").innerText = `Abstraction: ${carFeatures}`;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Object-Oriented Programming and Web Development</h1>
+            <p>Learn the fundamentals of OOP and Web Development and how they shape modern software development.</p>
+        </header>
+
+        <section class="oop-section">
+            <h2>What is Object-Oriented Programming (OOP)?</h2>
+            <p>
+                Object-Oriented Programming (OOP) is a programming paradigm based on the concept of "objects" which contain both data and methods. It promotes better organization of code and reusability. Let's break down the key principles of OOP:
+            </p>
+
+            <div class="oop-concepts">
+                <h3>Key Concepts of OOP</h3>
+                
+                <div class="concept">
+                    <h4>1. Classes and Objects</h4>
+                    <p>
+                        A class is like a blueprint for creating objects. Objects are instances of classes. In JavaScript, you can define a class as follows:
+                    </p>
+                    <pre><code>class Car {
+    constructor(brand, model) {
+        this.brand = brand;
+        this.model = model;
+    }
+}</code></pre>
+                    <p><strong>Example:</strong> The `Car` class is used to create different car objects.</p>
+                </div>
+
+                <div class="concept">
+                    <h4>2. Encapsulation</h4>
+                    <p>
+                        Encapsulation means bundling data (variables) and methods (functions) together. It also restricts direct access to some data fields, which is done through "getters" and "setters".
+                    </p>
+                    <p>Click the button to see an example of encapsulation in JavaScript:</p>
+                    <button onclick="showEncapsulation()">Show Encapsulation Example</button>
+                    <pre><code>class Car {
+    constructor(brand, model) {
+        this._brand = brand;
+        this._model = model;
+    }
+    
+    getDetails() {
+        return \`Car: \${this._brand} - \${this._model}\`;
+    }
+}</code></pre>
+                    <p id="encapsulation-example"></p>
+                </div>
+
+                <div class="concept">
+                    <h4>3. Inheritance</h4>
+                    <p>
+                        Inheritance allows one class (child) to inherit the properties and methods of another class (parent). This promotes code reuse.
+                    </p>
+                    <p>Click the button to see an example of inheritance in JavaScript:</p>
+                    <button onclick="showInheritance()">Show Inheritance Example</button>
+                    <pre><code>class ElectricCar extends Car {
+    constructor(brand, model, batteryLife) {
+        super(brand, model);
+        this.batteryLife = batteryLife;
+    }
+}</code></pre>
+                    <p id="inheritance-example"></p>
+                </div>
+
+                <div class="concept">
+                    <h4>4. Polymorphism</h4>
+                    <p>
+                        Polymorphism allows objects of different classes to be treated as objects of a common superclass. This means you can call the same method on different objects, and each will respond differently based on their class.
+                    </p>
+                    <p>Click the button to see an example of polymorphism in JavaScript:</p>
+                    <button onclick="showPolymorphism()">Show Polymorphism Example</button>
+                    <pre><code>class Animal {
+    speak() {
+        return "Generic animal sound";
+    }
+}
+
+class Dog extends Animal {
+    speak() {
+        return "Bark!";
+    }
+}</code></pre>
+                    <p id="polymorphism-example"></p>
+                </div>
+
+                <div class="concept">
+                    <h4>5. Abstraction</h4>
+                    <p>
+                        Abstraction means hiding the complex implementation details and showing only the necessary features of an object.
+                    </p>
+                    <p>Click the button to see an example of abstraction in JavaScript:</p>
+                    <button onclick="showAbstraction()">Show Abstraction Example</button>
+                    <pre><code>function driveCar() {
+    const features = "You drive a car using the steering wheel, accelerator, and brake.";
+    return features;
+}</code></pre>
+                    <p id="abstraction-example"></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="webdev-section">
+            <h2>What is Web Development?</h2>
+            <p>
+                Web Development refers to the creation and maintenance of websites. It involves both front-end (client-side) and back-end (server-side) development, working together to create dynamic and functional websites.
+            </p>
+            <h3>Key Components of Web Development</h3>
+            <ul>
+                <li><strong>HTML:</strong> The structure and content of a web page. HTML elements define how the content is displayed in a browser.</li>
+                <li><strong>CSS:</strong> The styling of the web page, which controls layout, color schemes, fonts, and visual design.</li>
+                <li><strong>JavaScript:</strong> Adds interactivity to web pages, allowing dynamic content updates and user interaction.</li>
+                <li><strong>Back-end Development:</strong> Involves server-side programming, databases, and application logic. Technologies like PHP, Node.js, and databases like MySQL are used.</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>Learn more about modern programming by exploring these concepts further.</p>
+        </footer>
+    </div>
+</body>
+</html>
